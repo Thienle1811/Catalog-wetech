@@ -1,306 +1,394 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi tiết sản phẩm - Catalog</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MeetFlow - Trợ Lý AI Cuộc Họp Toàn Diện</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        .product-detail-layout {
-            display: flex;
-            gap: 48px;
-            padding: var(--section-spacing-desktop) 0;
-        }
-        .product-images {
-            width: 480px;
-            flex-shrink: 0;
-        }
-        .main-image {
-            width: 480px;
-            height: 480px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            margin-bottom: 16px;
-            overflow: hidden;
-        }
-        .main-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .thumbnail-images {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 16px;
-        }
-        .thumbnail {
-            width: 80px;
-            height: 80px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            cursor: pointer;
-            overflow: hidden;
-        }
-        .thumbnail.active {
-            border-color: var(--cta-color);
-            border-width: 2px;
-        }
-        .product-info-details {
-            flex-grow: 1;
-        }
-        .product-info-details h1 {
-            font-size: 28px;
-            margin: 0 0 16px;
-        }
-        .product-price-detail {
-            font-size: 26px;
-            color: var(--cta-color);
-            font-weight: bold;
-            margin-bottom: 24px;
-        }
-        .product-actions {
-            display: flex;
-            gap: 16px;
-            margin-top: 24px;
-        }
-        .product-actions .btn {
-            width: 160px;
-            height: 48px;
-        }
-        .product-tabs {
-            padding: var(--section-spacing-desktop) 0;
-            border-top: 1px solid var(--border-color);
-        }
-        .tab-nav {
-            display: flex;
-            gap: 24px;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 24px;
-        }
-        .tab-nav button {
-            padding: 12px 16px;
-            border: none;
-            background: none;
-            font-size: 1.1rem;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-        }
-        .tab-nav button.active {
-            border-bottom-color: var(--cta-color);
-            font-weight: bold;
-        }
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .related-products-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-        .related-product-card {
-             border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden;
-        }
-        .related-product-card img {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-        }
-        .related-product-card .product-info {
-            padding: 16px;
-        }
+      .product-detail-layout {
+        display: flex;
+        gap: 48px;
+        padding: var(--section-spacing-desktop) 0;
+      }
+      .product-images {
+        width: 480px;
+        flex-shrink: 0;
+      }
+      .main-image {
+        width: 480px;
+        height: 480px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        margin-bottom: 16px;
+        overflow: hidden;
+      }
+      .main-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .thumbnail-images {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
+      }
+      .thumbnail {
+        width: 80px;
+        height: 80px;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        cursor: pointer;
+        overflow: hidden;
+      }
+      .thumbnail.active {
+        border-color: var(--cta-color);
+        border-width: 2px;
+      }
+      .product-info-details {
+        flex-grow: 1;
+      }
+      .product-info-details h1 {
+        font-size: 28px;
+        margin: 0 0 16px;
+      }
+      .product-price-detail {
+        font-size: 26px;
+        color: var(--cta-color);
+        font-weight: bold;
+        margin-bottom: 24px;
+      }
+      .product-actions {
+        display: flex;
+        gap: 16px;
+        margin-top: 24px;
+      }
+      .product-actions .btn {
+        width: 160px;
+        height: 48px;
+      }
+      .product-tabs {
+        padding: var(--section-spacing-desktop) 0;
+        border-top: 1px solid var(--border-color);
+      }
+      .tab-nav {
+        display: flex;
+        gap: 24px;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 24px;
+      }
+      .tab-nav button {
+        padding: 12px 16px;
+        border: none;
+        background: none;
+        font-size: 1.1rem;
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+      }
+      .tab-nav button.active {
+        border-bottom-color: var(--cta-color);
+        font-weight: bold;
+      }
+      .tab-content {
+        display: none;
+      }
+      .tab-content.active {
+        display: block;
+      }
+      .feature-list li {
+        margin-bottom: 12px;
+      }
+      .related-products-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+      .related-product-card {
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .related-product-card img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+      }
+      .related-product-card .product-info {
+        padding: 16px;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- Header -->
     <header class="main-header">
-        <div class="container">
-            <a href="{% url 'catalog_app:index' %}" class="logo">
-                <img src="{% static 'images/logo.png' %}" alt="Logo">
-            </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="products.html">Sản phẩm</a></li>
-                    <li><a href="{% url 'catalog_app:about' %}">Thông tin</a></li>
-                    <li><a href="{% url 'catalog_app:contact' %}">Liên hệ</a></li>
-                </ul>
-            </nav>
-            <div class="search-box">
-                <input type="text" placeholder="Tìm kiếm sản phẩm...">
-                <img src="{% static 'images/search-icon.svg' %}" alt="Search Icon" class="icon">
-            </div>
-            <div class="header-actions">
-                <div class="action-icon">
-                    <img src="{% static 'images/user-icon.svg' %}" alt="User">
-                </div>
-                <div class="action-icon">
-                    <img src="{% static 'images/cart-icon.svg' %}" alt="Cart">
-                </div>
-            </div>
+      <div class="container">
+        <a href="{% url 'catalog_app:index' %}" class="logo">
+          <img src="{% static 'images/logo.png' %}" alt="Logo" />
+        </a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="{% url 'catalog_app:index' %}">Trang chủ</a></li>
+            <li><a href="{% url 'catalog_app:products' %}">Sản phẩm</a></li>
+            <li><a href="{% url 'catalog_app:about' %}">Thông tin</a></li>
+            <li><a href="{% url 'catalog_app:contact' %}">Liên hệ</a></li>
+          </ul>
+        </nav>
+        <div class="search-box">
+          <input type="text" placeholder="Tìm kiếm sản phẩm..." />
+          <img
+            src="{% static 'images/search-icon.svg' %}"
+            alt="Search Icon"
+            class="icon"
+          />
         </div>
+        <div class="header-actions">
+          <div class="action-icon">
+            <img src="{% static 'images/user-icon.svg' %}" alt="User" />
+          </div>
+          <div class="action-icon">
+            <img src="{% static 'images/cart-icon.svg' %}" alt="Cart" />
+          </div>
+        </div>
+      </div>
     </header>
 
     <main>
-        <div class="container">
-            <!-- Breadcrumb -->
-            <nav aria-label="breadcrumb" style="padding: 24px 0;">
-                <ol style="list-style: none; display: flex; gap: 8px; padding: 0; margin: 0;">
-                    <li><a href="index.html">Trang chủ</a> /</li>
-                    <li><a href="products.html">Sản phẩm</a> /</li>
-                    <li>Tên sản phẩm 1</li>
-                </ol>
-            </nav>
+      <div class="container">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" style="padding: 24px 0">
+          <ol
+            style="
+              list-style: none;
+              display: flex;
+              gap: 8px;
+              padding: 0;
+              margin: 0;
+            "
+          >
+            <li><a href="{% url 'catalog_app:index' %}">Trang chủ</a> /</li>
+            <li><a href="{% url 'catalog_app:products' %}">Sản phẩm</a> /</li>
+            <li>MeetFlow</li>
+          </ol>
+        </nav>
 
-            <div class="product-detail-layout">
-                <!-- Product Images -->
-                <div class="product-images">
-                    <div class="main-image">
-                        <img src="https://via.placeholder.com/480x480" alt="Main product image">
-                    </div>
-                    <div class="thumbnail-images">
-                        <div class="thumbnail active"><img src="https://via.placeholder.com/80x80" alt="Thumbnail 1"></div>
-                        <div class="thumbnail"><img src="https://via.placeholder.com/80x80" alt="Thumbnail 2"></div>
-                        <div class="thumbnail"><img src="https://via.placeholder.com/80x80" alt="Thumbnail 3"></div>
-                        <div class="thumbnail"><img src="https://via.placeholder.com/80x80" alt="Thumbnail 4"></div>
-                    </div>
-                </div>
-
-                <!-- Product Info -->
-                <div class="product-info-details">
-                    <h1>Tên sản phẩm 1</h1>
-                    <div class="product-rating">★★★★☆ (4.5) | 120 đánh giá</div>
-                    <div class="product-price-detail">1.200.000đ</div>
-                    <p>Mô tả ngắn gọn về sản phẩm, nêu bật các tính năng chính và lợi ích cho người dùng. Đoạn văn này nên súc tích và hấp dẫn.</p>
-                    
-                    <div class="quantity-selector" style="margin-top: 24px;">
-                        <label for="quantity">Số lượng:</label>
-                        <input type="number" id="quantity" name="quantity" value="1" min="1" style="width: 60px; height: 40px; text-align: center;">
-                    </div>
-
-                    <div class="product-actions">
-                        <button class="btn btn-secondary">Thêm vào giỏ</button>
-                        <button class="btn btn-primary">Mua ngay</button>
-                    </div>
-                </div>
+        <div class="product-detail-layout">
+          <!-- Product Images -->
+          <div class="product-images">
+            <div class="main-image">
+              <img
+                src="{% static 'images/meetflow-main.jpg' %}"
+                alt="MeetFlow - Giao diện chính"
+              />
             </div>
+          </div>
 
-            <!-- Product Tabs -->
-            <section class="product-tabs">
-                <nav class="tab-nav">
-                    <button class="tab-link active" data-tab="description">Mô tả</button>
-                    <button class="tab-link" data-tab="reviews">Đánh giá</button>
-                    <button class="tab-link" data-tab="related">Sản phẩm liên quan</button>
-                </nav>
-                <div id="description" class="tab-content active">
-                    <p>Đây là phần mô tả chi tiết về sản phẩm. Bạn có thể thêm thông số kỹ thuật, hướng dẫn sử dụng, và các thông tin hữu ích khác ở đây.</p>
-                </div>
-                <div id="reviews" class="tab-content">
-                    <p>Phần đánh giá của khách hàng sẽ được hiển thị ở đây.</p>
-                </div>
-                <div id="related" class="tab-content">
-                    <div class="related-products-grid">
-                        <!-- Related Product Card -->
-                        <div class="related-product-card">
-                            <img src="https://via.placeholder.com/240x240" alt="Related Product">
-                            <div class="product-info">
-                                <h3>Sản phẩm liên quan 1</h3>
-                                <p>Giá: 990.000đ</p>
-                            </div>
-                        </div>
-                        <!-- Repeat 3 more times -->
-                        <div class="related-product-card">
-                            <img src="https://via.placeholder.com/240x240" alt="Related Product">
-                            <div class="product-info">
-                                <h3>Sản phẩm liên quan 2</h3>
-                                <p>Giá: 1.500.000đ</p>
-                            </div>
-                        </div>
-                        <div class="related-product-card">
-                            <img src="https://via.placeholder.com/240x240" alt="Related Product">
-                            <div class="product-info">
-                                <h3>Sản phẩm liên quan 3</h3>
-                                <p>Giá: 850.000đ</p>
-                            </div>
-                        </div>
-                        <div class="related-product-card">
-                            <img src="https://via.placeholder.com/240x240" alt="Related Product">
-                            <div class="product-info">
-                                <h3>Sản phẩm liên quan 4</h3>
-                                <p>Giá: 1.100.000đ</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+          <!-- Product Info -->
+          <div class="product-info-details">
+            <h1>MeetFlow - Trợ Lý AI Cuộc Họp Toàn Diện</h1>
+            <p>
+              <strong
+                >Đừng chỉ tham gia, hãy làm chủ cuộc họp! Tự động hóa việc ghi
+                chép, phân tích và tóm tắt cuộc họp với Trợ lý AI
+                MeetFlow.</strong
+              >
+            </p>
+            <div class="product-price-detail">Liên hệ</div>
+
+            <div class="product-actions">
+              <button class="btn btn-primary">Dùng thử ngay</button>
+              <button class="btn btn-secondary">Yêu cầu báo giá</button>
+            </div>
+          </div>
         </div>
+
+        <!-- Product Tabs -->
+        <section class="product-tabs">
+          <nav class="tab-nav">
+            <button class="tab-link active" data-tab="description">
+              Vấn đề & Giải pháp
+            </button>
+            <button class="tab-link" data-tab="features">
+              Tính năng & Lợi ích
+            </button>
+            <button class="tab-link" data-tab="related">
+              Sản phẩm liên quan
+            </button>
+          </nav>
+          <div id="description" class="tab-content active">
+            <h3>💡 Bạn đang gặp phải những vấn đề này trong cuộc họp?</h3>
+            <ul class="feature-list">
+              <li>
+                Không theo kịp tốc độ thảo luận diễn ra quá nhanh và bị bỏ lỡ
+                các luận điểm quan trọng.
+              </li>
+              <li>
+                Khó khăn trong việc nhớ hết tất cả nội dung hoặc người đưa ra ý
+                kiến, dẫn đến sai sót khi tổng hợp biên bản.
+              </li>
+              <li>
+                Mất quá nhiều thời gian để xem lại biên bản thủ công dài dòng,
+                cồng kềnh sau cuộc họp.
+              </li>
+              <li>Ghi chép thủ công dễ bị sót ý hoặc sai lệch thông tin.</li>
+            </ul>
+            <h3>✅ MeetFlow là giải pháp tối ưu dành cho bạn:</h3>
+            <p>
+              MeetFlow chuyển đổi toàn bộ quy trình ghi chép và quản lý cuộc họp
+              của bạn bằng sức mạnh của Trí tuệ Nhân tạo.
+            </p>
+          </div>
+          <div id="features" class="tab-content">
+            <h3>Tính năng cốt lõi</h3>
+            <ul class="feature-list">
+              <li>
+                <strong>Ghi âm & Nhận dạng giọng nói:</strong> Chuyển đổi cuộc
+                trò chuyện thành văn bản ngay lập tức, đảm bảo bạn không bỏ lỡ
+                bất kỳ chi tiết nào.
+              </li>
+              <li>
+                <strong>Lọc nhiễu thông minh:</strong> Tự động loại bỏ tiếng ồn
+                và giọng nói thừa, chỉ giữ lại nội dung làm việc chính.
+              </li>
+              <li>
+                <strong>Phiên âm theo thời gian thực:</strong> Cung cấp phiên âm
+                trực tiếp khi cuộc họp diễn ra, giải phóng bạn khỏi việc ghi
+                chép thủ công.
+              </li>
+              <li>
+                <strong>Phân tích cấu trúc hội thoại:</strong> Phân biệt và gắn
+                nhãn tự động cho ý kiến, đề xuất, phản biện và quyết định.
+              </li>
+              <li>
+                <strong>Nhóm nội dung thông minh:</strong> Tự động nhóm các phần
+                thảo luận theo chủ đề, giúp bạn dễ dàng tìm kiếm.
+              </li>
+              <li>
+                <strong>Tóm tắt & Xuất biểu mẫu:</strong> Rút gọn thành các gạch
+                đầu dòng quan trọng, sẵn sàng xuất ra các định dạng chuyên
+                nghiệp.
+              </li>
+            </ul>
+            <h3>🌟 Lợi ích cốt lõi bạn nhận được:</h3>
+            <ul class="feature-list">
+              <li>
+                <strong>Tăng hiệu suất 200%:</strong> Tập trung 100% vào thảo
+                luận, không cần lo lắng về việc ghi chép.
+              </li>
+              <li>
+                <strong>Biên bản chính xác tuyệt đối:</strong> Đảm bảo mọi quyết
+                định và luận điểm đều được ghi lại một cách trung thực.
+              </li>
+              <li>
+                <strong>Ra quyết định nhanh hơn:</strong> Dễ dàng lọc ra "Quyết
+                định" và "Đề xuất" để rút ngắn thời gian hậu kỳ.
+              </li>
+            </ul>
+          </div>
+          <div id="related" class="tab-content">
+            <div class="related-products-grid">
+                <a href="{% url 'catalog_app:product_page' product_slug='notiq' %}" class="related-product-card">
+                    <img src="{% static 'images/notiq-icon.png' %}" alt="Notiq">
+                    <div class="product-info"><h3>Notiq</h3></div>
+                </a>
+                <a href="{% url 'catalog_app:product_page' product_slug='vista' %}" class="related-product-card">
+                    <img src="{% static 'images/vista-icon.png' %}" alt="Vista">
+                    <div class="product-info"><h3>Vista</h3></div>
+                </a>
+                <a href="{% url 'catalog_app:product_page' product_slug='optisync' %}" class="related-product-card">
+                    <img src="{% static 'images/optisync-icon.png' %}" alt="OptiSync">
+                    <div class="product-info"><h3>OptiSync</h3></div>
+                </a>
+                <a href="{% url 'catalog_app:product_page' product_slug='opsmind' %}" class="related-product-card">
+                    <img src="{% static 'images/opsmind-icon.png' %}" alt="OpsMind">
+                    <div class="product-info"><h3>OpsMind</h3></div>
+                </a>
+                 <a href="{% url 'catalog_app:product_page' product_slug='vera' %}" class="related-product-card">
+                    <img src="{% static 'images/vera-icon.png' %}" alt="VERA">
+                    <div class="product-info"><h3>VERA</h3></div>
+                </a>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
 
     <!-- Footer -->
     <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h4>Về chúng tôi</h4>
-                    <ul>
-                        <li><a href="#">Giới thiệu</a></li>
-                        <li><a href="#">Tuyển dụng</a></li>
-                        <li><a href="#">Báo chí</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Hỗ trợ khách hàng</h4>
-                    <ul>
-                        <li><a href="#">Trung tâm trợ giúp</a></li>
-                        <li><a href="#">Chính sách bảo hành</a></li>
-                        <li><a href="#">Hướng dẫn mua hàng</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Kết nối với chúng tôi</h4>
-                    <div class="social-icons">
-                        <a href="#"><img src="{% static 'images/facebook-icon.svg' %}" alt="Facebook"></a>
-                        <a href="#"><img src="{% static 'images/instagram-icon.svg' %}" alt="Instagram"></a>
-                        <a href="#"><img src="{% static 'images/twitter-icon.svg' %}" alt="Twitter"></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h4>Đăng ký nhận tin</h4>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Nhập email của bạn">
-                        <button type="submit" class="btn btn-primary">Gửi</button>
-                    </form>
-                </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h4>Về chúng tôi</h4>
+            <ul>
+              <li><a href="#">Giới thiệu</a></li>
+              <li><a href="#">Tuyển dụng</a></li>
+              <li><a href="#">Báo chí</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Hỗ trợ khách hàng</h4>
+            <ul>
+              <li><a href="#">Trung tâm trợ giúp</a></li>
+              <li><a href="#">Chính sách bảo hành</a></li>
+              <li><a href="#">Hướng dẫn mua hàng</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Kết nối với chúng tôi</h4>
+            <div class="social-icons">
+              <a href="#"
+                ><img
+                  src="{% static 'images/facebook-icon.svg' %}"
+                  alt="Facebook"
+              /></a>
+              <a href="#"
+                ><img
+                  src="{% static 'images/instagram-icon.svg' %}"
+                  alt="Instagram"
+              /></a>
+              <a href="#"
+                ><img
+                  src="{% static 'images/twitter-icon.svg' %}"
+                  alt="Twitter"
+              /></a>
             </div>
+          </div>
+          <div class="footer-column">
+            <h4>Đăng ký nhận tin</h4>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Nhập email của bạn" />
+              <button type="submit" class="btn btn-primary">Gửi</button>
+            </form>
+          </div>
         </div>
-        <div class="copyright-bar">
-            <p>&copy; 2025 Tên Công Ty. All rights reserved.</p>
-        </div>
+      </div>
+      <div class="copyright-bar">
+        <p>&copy; 2025 Tên Công Ty. All rights reserved.</p>
+      </div>
     </footer>
 
     <script>
-        // Simple tab functionality
-        const tabLinks = document.querySelectorAll('.tab-link');
-        const tabContents = document.querySelectorAll('.tab-content');
+      // Simple tab functionality
+      const tabLinks = document.querySelectorAll(".tab-link");
+      const tabContents = document.querySelectorAll(".tab-content");
 
-        tabLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                const tabId = link.getAttribute('data-tab');
+      tabLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          const tabId = link.getAttribute("data-tab");
 
-                tabLinks.forEach(l => l.classList.remove('active'));
-                tabContents.forEach(c => c.classList.remove('active'));
+          tabLinks.forEach((l) => l.classList.remove("active"));
+          tabContents.forEach((c) => c.classList.remove("active"));
 
-                link.classList.add('active');
-                document.getElementById(tabId).classList.add('active');
-            });
+          link.classList.add("active");
+          document.getElementById(tabId).classList.add("active");
         });
+      });
     </script>
-</body>
+  </body>
 </html>

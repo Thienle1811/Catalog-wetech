@@ -43,12 +43,14 @@ Dưới đây là cấu trúc cây thư mục của dự án:
 ## Hướng dẫn cài đặt và chạy dự án
 
 1.  **Clone repository:**
+
     ```bash
     git clone https://github.com/wetech-thevan/Catalog_wetech.git
     cd Catalog_wetech
     ```
 
 2.  **Tạo và kích hoạt môi trường ảo:**
+
     ```bash
     python -m venv venv
     # Trên Windows
@@ -58,14 +60,15 @@ Dưới đây là cấu trúc cây thư mục của dự án:
     ```
 
 3.  **Cài đặt các thư viện cần thiết:**
+
     ```bash
     pip install django
     ```
 
 4.  **Chạy server:**
+
     ```bash
     python manage.py runserver
     ```
 
 5.  Mở trình duyệt và truy cập `http://127.0.0.1:8000/`.
-

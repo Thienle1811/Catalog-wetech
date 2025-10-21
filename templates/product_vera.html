@@ -1,0 +1,120 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block content %}
+<div class="product-detail-container">
+    <div class="product-main-image">
+        <img src="{% static 'images/vera.main.png' %}" alt="VERA Main Image">
+    </div>
+
+    <div class="product-info-tabs">
+        <div class="tab-headers">
+            <button class="tab-link active" onclick="openTab(event, 'description')">Mô tả</button>
+            <button class="tab-link" onclick="openTab(event, 'related')">Sản phẩm liên quan</button>
+        </div>
+
+        <div id="description" class="tab-content" style="display: block;">
+            <h1>VERA - Trợ Lý Tự Động Hóa Quy Trình Làm Việc (WAT)</h1>
+            <h2>Đánh bại công việc lặp đi lặp lại. Xóa sổ sai sót thủ công. VERA xây dựng trung tâm Tự động hóa Nội bộ (Internal Automation Hub), kết nối mọi phòng ban và hệ thống chỉ trong vài cú nhấp chuột.</h2>
+            
+            <h3>💡 Doanh nghiệp của bạn đang lãng phí thời gian vào đâu? (Vấn đề/Nhu cầu)</h3>
+            <ul>
+                <li>Lãng phí thời gian cho các công việc văn phòng lặp đi lặp lại hàng ngày.</li>
+                <li>Dữ liệu bị cô lập trong các hệ thống khác nhau (ERP, CRM, HRM...), gây khó khăn trong việc liên kết dữ liệu và báo cáo tổng thể.</li>
+                <li>Sai sót thường xuyên xảy ra do thao tác thủ công và việc nhập liệu lại.</li>
+                <li>Không thể theo dõi và quản lý được hiệu suất cũng như tiến độ của các quy trình làm việc liên phòng ban.</li>
+            </ul>
+
+            <h3>✅ VERA - Giải pháp Tự động hóa Tập trung & Thông minh (Tính năng & Giải pháp)</h3>
+            <p>VERA không chỉ là một công cụ, đó là Trục kết nối và Tự động hóa trung tâm giúp tối ưu hóa luồng công việc của bạn:</p>
+            
+            <table class="features-table">
+                <thead>
+                    <tr>
+                        <th>Tính năng cốt lõi</th>
+                        <th>VERA giúp bạn tối ưu hóa hoạt động nội bộ như thế nào</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Tự động hóa Low-Code/No-Code</strong></td>
+                        <td><strong>Tự động hóa nhanh chóng:</strong> Xây dựng quy trình tự động hóa (Workflow Automation) bằng các nền tảng low-code/no-code (như Make, Zapier, Power Automate), giúp nhân viên không chuyên cũng có thể thiết lập.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Internal Automation Hub</strong></td>
+                        <td><strong>Kết nối tập trung:</strong> Thiết lập một nền tảng Hub trung tâm để tự động hóa các quy trình lặp lại, kết nối giữa các phòng ban và hệ thống có sẵn (ERP, CRM, HRM, Google Workspace, Excel, Email...).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RPA + AI Validation Engine</strong></td>
+                        <td><strong>Loại bỏ sai sót:</strong> Sử dụng RPA (Robotic Process Automation) để mô phỏng và thực hiện thao tác thủ công, kết hợp với AI Validation Engine để kiểm tra và xử lý dữ liệu tự động, đảm bảo độ chính xác.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tích hợp API Gateway & Middleware</strong></td>
+                        <td><strong>Kết nối mạnh mẽ:</strong> Tích hợp hệ thống qua API Gateway hoặc Middleware Integration Platform (như Apigee, Mulesoft, Node-RED, Power Automate), đảm bảo mọi công cụ đều được kết nối thông suốt.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Workflow Monitoring & Process Intelligence</strong></td>
+                        <td><strong>Quản lý chuyên sâu:</strong> Xây dựng Workflow Monitoring Dashboard kết hợp Process Intelligence để theo dõi, đo lường và quản lý hiệu suất của từng quy trình.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kiểm soát Truy cập & Phê duyệt tự động (RBAC + e-sign)</strong></td>
+                        <td><strong>An toàn & Minh bạch:</strong> Áp dụng mô hình Role-based Access Control (RBAC) kết hợp e-sign/Approval Automation để phân quyền và tự động hóa quy trình phê duyệt một cách an toàn và rõ ràng.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>🌟 Lợi ích cốt lõi bạn nhận được: (Core Benefits)</h3>
+            <ul>
+                <li><strong>Tăng hiệu suất 40%:</strong> Giải phóng nhân viên khỏi các nhiệm vụ lặp đi lặp lại, cho phép họ tập trung vào các công việc chiến lược hơn.</li>
+                <li><strong>Độ chính xác tuyệt đối:</strong> Giảm thiểu lỗi do con người nhờ RPA và AI Validation.</li>
+                <li><strong>Quy trình tập trung:</strong> Dữ liệu được đồng bộ hóa và quản lý tập trung, phá vỡ các silo dữ liệu giữa các phòng ban.</li>
+                <li><strong>Minh bạch & Kiểm soát:</strong> Quản lý quy trình theo thời gian thực và tự động hóa phê duyệt theo đúng vai trò.</li>
+            </ul>
+
+            <h3>👉 Kêu gọi hành động (Call to Action)</h3>
+            <p class="call-to-action">Ngừng làm việc thủ công, Bắt đầu Tự động hóa thông minh! Đăng ký dùng thử VERA ngay hôm nay để biến các quy trình làm việc rời rạc thành luồng vận hành tinh gọn, hiệu suất cao!</p>
+        </div>
+
+        <div id="related" class="tab-content">
+            <div class="related-products-grid">
+                <a href="{% url 'catalog_app:product_page' product_slug='meetflow' %}" class="related-product-card">
+                    <img src="{% static 'images/meetflow-icon.png' %}" alt="MeetFlow">
+                    <div class="product-info"><h3>MeetFlow</h3></div>
+                </a>
+                <a href="{% url 'catalog_app:product_page' product_slug='notiq' %}" class="related-product-card">
+                    <img src="{% static 'images/notiq-icon.png' %}" alt="Notiq">
+                    <div class="product-info"><h3>Notiq</h3></div>
+                </a>
+                <a href="{% url 'catalog_app:product_page' product_slug='vista' %}" class="related-product-card">
+                    <img src="{% static 'images/vista-icon.png' %}" alt="Vista">
+                    <div class="product-info"><h3>Vista</h3></div>
+                </a>
+                <a href="{% url 'catalog_app:product_page' product_slug='optisync' %}" class="related-product-card">
+                    <img src="{% static 'images/optisync-icon.png' %}" alt="OptiSync">
+                    <div class="product-info"><h3>OptiSync</h3></div>
+                </a>
+                <a href="{% url 'catalog_app:product_page' product_slug='opsmind' %}" class="related-product-card">
+                    <img src="{% static 'images/opsmind-icon.png' %}" alt="OpsMind">
+                    <div class="product-info"><h3>OpsMind</h3></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tab-link");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+{% endblock %}

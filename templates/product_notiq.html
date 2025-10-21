@@ -1,0 +1,310 @@
+{% extends "base_generic.html" %} {% load static %} {% block title %}Notiq - OCR
+Chính Xác Từ Camera Bất Kỳ{% endblock %} {% block extra_head %}
+<style>
+  .product-detail-layout {
+    display: flex;
+    gap: 48px;
+    padding: var(--section-spacing-desktop) 0;
+  }
+  .product-images {
+    width: 480px;
+    flex-shrink: 0;
+  }
+  .main-image {
+    width: 480px;
+    height: 480px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .thumbnail-images {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+  .thumbnail {
+    width: 80px;
+    height: 80px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .thumbnail.active {
+    border-color: var(--cta-color);
+    border-width: 2px;
+  }
+  .product-info-details {
+    flex-grow: 1;
+  }
+  .product-info-details h1 {
+    font-size: 28px;
+    margin: 0 0 16px;
+  }
+  .product-price-detail {
+    font-size: 26px;
+    color: var(--cta-color);
+    font-weight: bold;
+    margin-bottom: 24px;
+  }
+  .product-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .product-actions .btn {
+    width: 160px;
+    height: 48px;
+  }
+  .product-tabs {
+    padding: var(--section-spacing-desktop) 0;
+    border-top: 1px solid var(--border-color);
+  }
+  .tab-nav {
+    display: flex;
+    gap: 24px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 24px;
+  }
+  .tab-nav button {
+    padding: 12px 16px;
+    border: none;
+    background: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+  }
+  .tab-nav button.active {
+    border-bottom-color: var(--cta-color);
+    font-weight: bold;
+  }
+  .tab-content {
+    display: none;
+  }
+  .tab-content.active {
+    display: block;
+  }
+  .feature-list li {
+    margin-bottom: 12px;
+  }
+  .feature-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  .feature-table th,
+  .feature-table td {
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    text-align: left;
+  }
+  .feature-table th {
+    background-color: #f8f9fa;
+  }
+  .related-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .related-product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+  }
+  .related-product-card img {
+    width: 100%;
+    height: auto;
+    max-width: 120px;
+    margin-bottom: 8px;
+  }
+</style>
+{% endblock %} {% block content %}
+<main>
+  <div class="container">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" style="padding: 24px 0">
+      <ol
+        style="list-style: none; display: flex; gap: 8px; padding: 0; margin: 0"
+      >
+        <li><a href="{% url 'catalog_app:index' %}">Trang chủ</a> /</li>
+        <li><a href="{% url 'catalog_app:products' %}">Sản phẩm</a> /</li>
+        <li>Notiq</li>
+      </ol>
+    </nav>
+
+    <div class="product-detail-layout">
+      <!-- Product Images -->
+      <div class="product-images">
+        <div class="main-image">
+          <img
+            src="{% static 'images/Notiq -OCR-main.png' %}"
+            alt="Notiq - Giao diện chính"
+          />
+        </div>
+      </div>
+
+      <!-- Product Info -->
+      <div class="product-info-details">
+        <h1>Notiq - OCR Chính Xác Từ Camera Bất Kỳ</h1>
+        <p>
+          <strong
+            >Chụp ảnh kém? Góc chụp nghiêng? Chữ nhòe? Đừng lo! Chuyển đổi mọi
+            ảnh tài liệu thành văn bản chỉnh sửa được, chính xác tuyệt đối với
+            Notiq.</strong
+          >
+        </p>
+        <div class="product-price-detail">Liên hệ</div>
+
+        <div class="product-actions">
+          <button class="btn btn-primary">Tải ngay</button>
+          <button class="btn btn-secondary">Yêu cầu báo giá</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Tabs -->
+    <section class="product-tabs">
+      <nav class="tab-nav">
+        <button class="tab-link active" data-tab="problem">
+          Vấn đề & Giải pháp
+        </button>
+        <button class="tab-link" data-tab="benefits">Lợi ích cốt lõi</button>
+        <button class="tab-link" data-tab="related">Sản phẩm liên quan</button>
+      </nav>
+      <div id="problem" class="tab-content active">
+        <h3>💡 Bạn có từng thất vọng với OCR trên ảnh chụp?</h3>
+        <ul class="feature-list">
+          <li>
+            Văn bản nhòe, mờ hoặc chữ quá nhỏ khiến máy không nhận dạng được
+            (Failed OCR).
+          </li>
+          <li>
+            Ảnh chụp không vuông góc với tài liệu (chụp nghiêng, bị bóp méo phối
+            cảnh).
+          </li>
+          <li>
+            Mất thời gian để nhập lại các ký tự bị lỗi hoặc phải định dạng lại
+            toàn bộ văn bản sau khi chuyển đổi.
+          </li>
+        </ul>
+        <h3>✅ Notiq là bậc thầy xử lý OCR trên ảnh chụp:</h3>
+        <p>
+          Notiq áp dụng các mô hình AI tiên tiến nhất để biến những bức ảnh tài
+          liệu kém chất lượng thành văn bản hoàn hảo.
+        </p>
+        <table class="feature-table">
+          <thead>
+            <tr>
+              <th>Tính năng cốt lõi</th>
+              <th>Notiq giải quyết vấn đề của bạn như thế nào</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Tối ưu hóa hình ảnh & Chỉnh sửa ký tự</strong></td>
+              <td>
+                Sử dụng Image Super-Resolution để làm rõ vùng chữ mờ. Áp dụng
+                Deep OCR để tự động tạo lại văn bản bị méo, nhòe hoặc thiếu ký
+                tự.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Chuyển đổi phối cảnh thông minh</strong></td>
+              <td>
+                Tính toán 4 điểm góc trang và sử dụng Perspective Transform để
+                "trải phẳng" tài liệu. Tự động xoay ảnh theo đúng hướng đọc.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>OCR chuyên sâu đa mô hình</strong></td>
+              <td>
+                Kết hợp các mô hình OCR mạnh mẽ (Tesseract, PaddleOCR, Google
+                Vision) để nhận diện chính xác các ký tự, số, và đặc biệt là dấu
+                tiếng Việt.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Sửa lỗi ngữ cảnh & Giữ định dạng</strong></td>
+              <td>
+                Kết hợp mô hình NLP (như BERT, LLaMA-mini) để suy luận và tự
+                động sửa các lỗi ký tự bị OCR sai. Giữ nguyên bố cục gần như bản
+                gốc.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="benefits" class="tab-content">
+        <h3>🌟 Lợi ích cốt lõi bạn nhận được:</h3>
+        <ul class="feature-list">
+          <li>
+            <strong>OCR Bất chấp điều kiện:</strong> Không cần chụp ảnh hoàn
+            hảo, Notiq xử lý tốt các ảnh nghiêng, nhòe, và mờ.
+          </li>
+          <li>
+            <strong>Tiết kiệm thời gian chỉnh sửa:</strong> Nhờ tính năng sửa
+            lỗi bằng NLP và giữ định dạng, bạn chỉ cần một bước để có văn bản
+            sạch.
+          </li>
+          <li>
+            <strong>Dữ liệu chính xác 99%:</strong> Tận dụng Deep Learning để
+            đảm bảo mọi chi tiết (kể cả tiếng Việt) đều được nhận diện đúng.
+          </li>
+        </ul>
+      </div>
+      <div id="related" class="tab-content">
+                <div class="related-products-grid">
+                    <a href="{% url 'catalog_app:product_page' product_slug='meetflow' %}" class="related-product-card">
+                        <img src="{% static 'images/meetflow-icon.png' %}" alt="MeetFlow">
+                        <div class="product-info"><h3>MeetFlow</h3></div>
+                    </a>
+                    <a href="{% url 'catalog_app:product_page' product_slug='vista' %}" class="related-product-card">
+                        <img src="{% static 'images/vista-icon.png' %}" alt="Vista">
+                        <div class="product-info"><h3>Vista</h3></div>
+                    </a>
+                    <a href="{% url 'catalog_app:product_page' product_slug='optisync' %}" class="related-product-card">
+                        <img src="{% static 'images/optisync-icon.png' %}" alt="OptiSync">
+                        <div class="product-info"><h3>OptiSync</h3></div>
+                    </a>
+                    <a href="{% url 'catalog_app:product_page' product_slug='opsmind' %}" class="related-product-card">
+                        <img src="{% static 'images/opsmind-icon.png' %}" alt="OpsMind">
+                        <div class="product-info"><h3>OpsMind</h3></div>
+                    </a>
+                    <a href="{% url 'catalog_app:product_page' product_slug='vera' %}" class="related-product-card">
+                        <img src="{% static 'images/vera-icon.png' %}" alt="VERA">
+                        <div class="product-info"><h3>VERA</h3></div>
+                    </a>
+                </div>
+            </div>
+    </section>
+  </div>
+</main>
+{% endblock %} {% block extra_scripts %}
+<script>
+  // Simple tab functionality
+  const tabLinks = document.querySelectorAll(".tab-link");
+  const tabContents = document.querySelectorAll(".tab-content");
+
+  tabLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      const tabId = link.getAttribute("data-tab");
+
+      tabLinks.forEach((l) => l.classList.remove("active"));
+      tabContents.forEach((c) => c.classList.remove("active"));
+
+      link.classList.add("active");
+      document.getElementById(tabId).classList.add("active");
+    });
+  });
+</script>
+{% endblock %}
