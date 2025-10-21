@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Về chúng tôi - Catalog</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .about-hero {
+            height: 300px;
+            background: url('https://via.placeholder.com/1920x300') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-color);
+            text-align: center;
+        }
+        .about-hero h1 {
+            font-size: 36px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .about-content {
+            max-width: 960px;
+            margin: var(--section-spacing-desktop) auto;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .about-content img {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 32px auto;
+            display: block;
+        }
+        .cta-section {
+            text-align: center;
+            padding: var(--section-spacing-desktop) 0;
+        }
+        .cta-section h2 {
+            margin-bottom: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <a href="{% url 'catalog_app:index' %}" class="logo">
+                <img src="{% static 'images/logo.png' %}" alt="Logo">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{% url 'catalog_app:index' %}">Trang chủ</a></li>
+                    <li><a href="{% url 'catalog_app:products' %}">Sản phẩm</a></li>
+                    <li><a href="{% url 'catalog_app:about' %}">Thông tin</a></li>
+                    <li><a href="{% url 'catalog_app:contact' %}">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                <img src="{% static 'images/search-icon.svg' %}" alt="Search Icon" class="icon">
+            </div>
+            <div class="header-actions">
+                <div class="action-icon">
+                    <img src="{% static 'images/user-icon.svg' %}" alt="User">
+                </div>
+                <div class="action-icon">
+                    <img src="{% static 'images/cart-icon.svg' %}" alt="Cart">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="about-hero">
+            <h1>Về Chúng Tôi</h1>
+        </section>
+
+        <!-- About Content -->
+        <section class="about-content">
+            <div class="container">
+                <p>Chào mừng bạn đến với [Tên Công Ty], nơi chúng tôi mang đến những sản phẩm chất lượng cao với giá cả phải chăng. Sứ mệnh của chúng tôi là cung cấp trải nghiệm mua sắm trực tuyến tốt nhất cho khách hàng.</p>
+                <img src="https://via.placeholder.com/600x400" alt="Our team">
+                <p>Được thành lập vào năm 2020, chúng tôi đã không ngừng nỗ lực để mở rộng danh mục sản phẩm và cải thiện dịch vụ. Đội ngũ của chúng tôi luôn sẵn sàng hỗ trợ bạn mọi lúc, mọi nơi.</p>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Bạn có câu hỏi?</h2>
+                <p>Đừng ngần ngại liên hệ với chúng tôi để được giải đáp.</p>
+                <a href="contact.html" class="btn btn-primary" style="width: 160px; height: 48px;">Liên Hệ Ngay</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Về chúng tôi</h4>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Báo chí</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Hỗ trợ khách hàng</h4>
+                    <ul>
+                        <li><a href="#">Trung tâm trợ giúp</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Kết nối với chúng tôi</h4>
+                    <div class="social-icons">
+                        <a href="#"><img src="{% static 'images/facebook-icon.svg' %}" alt="Facebook"></a>
+                        <a href="#"><img src="{% static 'images/instagram-icon.svg' %}" alt="Instagram"></a>
+                        <a href="#"><img src="{% static 'images/twitter-icon.svg' %}" alt="Twitter"></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Đăng ký nhận tin</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Nhập email của bạn">
+                        <button type="submit" class="btn btn-primary">Gửi</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-bar">
+            <p>&copy; 2025 Tên Công Ty. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

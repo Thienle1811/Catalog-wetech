@@ -1,0 +1,197 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ - Catalog</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <a href="{% url 'catalog_app:index' %}" class="logo">
+                <img src="{% static 'images/logo.png' %}" alt="Logo">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{% url 'catalog_app:index' %}">Trang chủ</a></li>
+                    <li><a href="{% url 'catalog_app:products' %}">Sản phẩm</a></li>
+                    <li><a href="{% url 'catalog_app:about' %}">Thông tin</a></li>
+                    <li><a href="{% url 'catalog_app:contact' %}">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                <img src="{% static 'images/search-icon.svg' %}" alt="Search Icon" class="icon">
+            </div>
+            <div class="header-actions">
+                <div class="action-icon">
+                    <img src="{% static 'images/user-icon.svg' %}" alt="User">
+                </div>
+                <div class="action-icon">
+                    <img src="{% static 'images/cart-icon.svg' %}" alt="Cart">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="height: 500px; background: #eee; display: flex; align-items: center; justify-content: center; text-align: center;">
+            <div class="hero-content">
+                <h1 style="font-size: 40px;">Bộ Sưu Tập Mùa Mới</h1>
+                <p style="font-size: 18px; margin-bottom: 32px;">Khám phá những sản phẩm tốt nhất cho mùa này.</p>
+                <a href="products.html" class="btn btn-primary" style="width: 160px; height: 48px;">Mua Ngay</a>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories" style="padding: var(--section-spacing-desktop) 0;">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 32px;">Danh Mục Sản Phẩm</h2>
+                <div class="category-grid" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; text-align: center;">
+                    <!-- Category Item -->
+                    <div class="category-item" style="border: 1px solid var(--border-color); padding: 16px; border-radius: 8px;">
+                        <div class="category-icon" style="width: 48px; height: 48px; background: #ddd; margin: 0 auto 12px;"></div>
+                        <span>Điện tử</span>
+                    </div>
+                    <!-- Repeat 5 more times -->
+                    <div class="category-item" style="border: 1px solid var(--border-color); padding: 16px; border-radius: 8px;">
+                        <div class="category-icon" style="width: 48px; height: 48px; background: #ddd; margin: 0 auto 12px;"></div>
+                        <span>Thời trang</span>
+                    </div>
+                    <div class="category-item" style="border: 1px solid var(--border-color); padding: 16px; border-radius: 8px;">
+                        <div class="category-icon" style="width: 48px; height: 48px; background: #ddd; margin: 0 auto 12px;"></div>
+                        <span>Nhà cửa</span>
+                    </div>
+                    <div class="category-item" style="border: 1px solid var(--border-color); padding: 16px; border-radius: 8px;">
+                        <div class="category-icon" style="width: 48px; height: 48px; background: #ddd; margin: 0 auto 12px;"></div>
+                        <span>Sức khỏe</span>
+                    </div>
+                    <div class="category-item" style="border: 1px solid var(--border-color); padding: 16px; border-radius: 8px;">
+                        <div class="category-icon" style="width: 48px; height: 48px; background: #ddd; margin: 0 auto 12px;"></div>
+                        <span>Sách</span>
+                    </div>
+                    <div class="category-item" style="border: 1px solid var(--border-color); padding: 16px; border-radius: 8px;">
+                        <div class="category-icon" style="width: 48px; height: 48px; background: #ddd; margin: 0 auto 12px;"></div>
+                        <span>Thể thao</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section class="featured-products" style="padding: var(--section-spacing-desktop) 0;">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 32px;">Sản Phẩm Nổi Bật</h2>
+                <div class="product-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+                    <!-- Product Card -->
+                    <div class="product-card" style="border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden;">
+                        <img src="https://via.placeholder.com/300x300" alt="Product">
+                        <div class="product-info" style="padding: 16px;">
+                            <h3>Tên sản phẩm</h3>
+                            <p>Giá: 1.000.000đ</p>
+                        </div>
+                    </div>
+                    <!-- Repeat 3 more times -->
+                    <div class="product-card" style="border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden;">
+                        <img src="https://via.placeholder.com/300x300" alt="Product">
+                        <div class="product-info" style="padding: 16px;">
+                            <h3>Tên sản phẩm</h3>
+                            <p>Giá: 1.000.000đ</p>
+                        </div>
+                    </div>
+                    <div class="product-card" style="border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden;">
+                        <img src="https://via.placeholder.com/300x300" alt="Product">
+                        <div class="product-info" style="padding: 16px;">
+                            <h3>Tên sản phẩm</h3>
+                            <p>Giá: 1.000.000đ</p>
+                        </div>
+                    </div>
+                    <div class="product-card" style="border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden;">
+                        <img src="https://via.placeholder.com/300x300" alt="Product">
+                        <div class="product-info" style="padding: 16px;">
+                            <h3>Tên sản phẩm</h3>
+                            <p>Giá: 1.000.000đ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback Section -->
+        <section class="feedback" style="padding: var(--section-spacing-desktop) 0; background: var(--white-color);">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 32px;">Khách Hàng Nói Gì</h2>
+                <div class="feedback-carousel" style="display: flex; gap: 24px; justify-content: center;">
+                     <!-- Feedback Card -->
+                    <div class="feedback-card" style="width: 320px; height: 200px; border: 1px solid var(--border-color); border-radius: 8px; padding: 24px;">
+                        <p>"Sản phẩm tuyệt vời, dịch vụ khách hàng rất tốt. Sẽ quay lại mua hàng."</p>
+                        <strong>- Nguyễn Văn A</strong>
+                    </div>
+                     <!-- Repeat 2 more times -->
+                    <div class="feedback-card" style="width: 320px; height: 200px; border: 1px solid var(--border-color); border-radius: 8px; padding: 24px;">
+                        <p>"Giao hàng nhanh, đóng gói cẩn thận. Chất lượng sản phẩm đúng như mô tả."</p>
+                        <strong>- Trần Thị B</strong>
+                    </div>
+                    <div class="feedback-card" style="width: 320px; height: 200px; border: 1px solid var(--border-color); border-radius: 8px; padding: 24px;">
+                        <p>"Rất hài lòng với trải nghiệm mua sắm tại đây. Website dễ sử dụng."</p>
+                        <strong>- Lê Văn C</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Về chúng tôi</h4>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Báo chí</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Hỗ trợ khách hàng</h4>
+                    <ul>
+                        <li><a href="#">Trung tâm trợ giúp</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Kết nối với chúng tôi</h4>
+                    <div class="social-icons">
+                        <a href="#"><img src="{% static 'images/facebook-icon.svg' %}" alt="Facebook"></a>
+                        <a href="#"><img src="{% static 'images/instagram-icon.svg' %}" alt="Instagram"></a>
+                        <a href="#"><img src="{% static 'images/twitter-icon.svg' %}" alt="Twitter"></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Đăng ký nhận tin</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Nhập email của bạn">
+                        <button type="submit" class="btn btn-primary">Gửi</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-bar">
+            <p>&copy; 2025 Tên Công Ty. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

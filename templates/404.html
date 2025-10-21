@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lỗi 404 - Không tìm thấy trang</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .error-page-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: calc(100vh - var(--header-height) - 288px); /* Adjust based on footer height */
+            padding: 48px 0;
+        }
+        .error-illustration {
+            width: 300px;
+            height: 300px;
+            /* Placeholder for SVG */
+            background: #eee;
+            border-radius: 50%;
+            margin-bottom: 32px;
+        }
+        .error-page-container h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+        .error-page-container p {
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+        .error-search-bar {
+            width: 100%;
+            max-width: 400px;
+            height: 44px;
+            position: relative;
+            margin-top: 24px;
+        }
+        .error-search-bar input {
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <a href="{% url 'catalog_app:index' %}" class="logo">
+                <img src="{% static 'images/logo.png' %}" alt="Logo">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{% url 'catalog_app:index' %}">Trang chủ</a></li>
+                    <li><a href="{% url 'catalog_app:products' %}">Sản phẩm</a></li>
+                    <li><a href="{% url 'catalog_app:about' %}">Thông tin</a></li>
+                    <li><a href="{% url 'catalog_app:contact' %}">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                <img src="{% static 'images/search-icon.svg' %}" alt="Search Icon" class="icon">
+            </div>
+            <div class="header-actions">
+                <div class="action-icon">
+                    <img src="{% static 'images/user-icon.svg' %}" alt="User">
+                </div>
+                <div class="action-icon">
+                    <img src="{% static 'images/cart-icon.svg' %}" alt="Cart">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="error-page-container">
+                <div class="error-illustration">
+                    <!-- You can embed an SVG here -->
+                </div>
+                <h1>Ôi, không! Lỗi 404</h1>
+                <p>Trang bạn đang tìm kiếm không tồn tại hoặc đã bị di chuyển.</p>
+                <a href="index.html" class="btn btn-primary" style="width: 160px; height: 48px;">Về Trang Chủ</a>
+                <div class="error-search-bar">
+                    <input type="text" placeholder="Hoặc thử tìm kiếm lại">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Về chúng tôi</h4>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Báo chí</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Hỗ trợ khách hàng</h4>
+                    <ul>
+                        <li><a href="#">Trung tâm trợ giúp</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Kết nối với chúng tôi</h4>
+                    <div class="social-icons">
+                        <a href="#"><img src="{% static 'images/facebook-icon.svg' %}" alt="Facebook"></a>
+                        <a href="#"><img src="{% static 'images/instagram-icon.svg' %}" alt="Instagram"></a>
+                        <a href="#"><img src="{% static 'images/twitter-icon.svg' %}" alt="Twitter"></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Đăng ký nhận tin</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Nhập email của bạn">
+                        <button type="submit" class="btn btn-primary">Gửi</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-bar">
+            <p>&copy; 2025 Tên Công Ty. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
