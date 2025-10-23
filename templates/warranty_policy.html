@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block title %}Chính sách bảo hành - WetechX{% endblock %}
+{% block content %}
+<main>
+  <div class="container" style="padding: 48px 0">
+    <h1>Chính sách bảo hành và hỗ trợ kỹ thuật</h1>
+    <h2>Phạm vi bảo hành</h2>
+    <p>
+      Bảo hành áp dụng cho các lỗi do nhà sản xuất hoặc lỗi về tính năng cơ bản
+      của phần mềm được mô tả trong tài liệu sản phẩm.
+    </p>
+
+    <h2>Thời hạn và Cấp độ hỗ trợ (SLA)</h2>
+    <ul>
+      <li>P1 - Lỗi nghiêm trọng: Hỗ trợ 24/7, phản hồi trong 1 giờ.</li>
+      <li>
+        P2 - Lỗi chức năng chính: Hỗ trợ trong giờ hành chính, phản hồi trong 4
+        giờ.
+      </li>
+      <li>
+        P3 - Yêu cầu cải tiến/không ảnh hưởng chức năng: Phản hồi trong 2 ngày
+        làm việc.
+      </li>
+    </ul>
+
+    <h2>Điều khoản loại trừ</h2>
+    <ul>
+      <li>Thay đổi mã nguồn trái phép.</li>
+      <li>Lỗi do tích hợp với hệ thống bên thứ ba không tương thích.</li>
+      <li>Lỗi do người dùng cấu hình sai, đặc biệt trong WAI-Vera Low-code.</li>
+    </ul>
+  </div>
+</main>
+{% endblock %}

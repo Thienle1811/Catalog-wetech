@@ -1,5 +1,7 @@
-{% extends "base_generic.html" %} {% load static %} {% block title %}Notiq - OCR
-Chính Xác Từ Camera Bất Kỳ{% endblock %} {% block extra_head %}
+{% extends "base_generic.html" %}
+{% load static %}
+{% block title %}Notiq - OCR Chính Xác Từ Camera Bất Kỳ{% endblock %}
+{% block extra_head %}
 <style>
   .product-detail-layout {
     display: flex;
@@ -128,7 +130,8 @@ Chính Xác Từ Camera Bất Kỳ{% endblock %} {% block extra_head %}
     margin-bottom: 8px;
   }
 </style>
-{% endblock %} {% block content %}
+{% endblock %}
+{% block content %}
 <main>
   <div class="container">
     <!-- Breadcrumb -->
@@ -263,33 +266,49 @@ Chính Xác Từ Camera Bất Kỳ{% endblock %} {% block extra_head %}
         </ul>
       </div>
       <div id="related" class="tab-content">
-                <div class="related-products-grid">
-                    <a href="{% url 'catalog_app:product_page' product_slug='meetflow' %}" class="related-product-card">
-                        <img src="{% static 'images/meetflow-icon.png' %}" alt="MeetFlow">
-                        <div class="product-info"><h3>MeetFlow</h3></div>
-                    </a>
-                    <a href="{% url 'catalog_app:product_page' product_slug='vista' %}" class="related-product-card">
-                        <img src="{% static 'images/vista-icon.png' %}" alt="Vista">
-                        <div class="product-info"><h3>Vista</h3></div>
-                    </a>
-                    <a href="{% url 'catalog_app:product_page' product_slug='optisync' %}" class="related-product-card">
-                        <img src="{% static 'images/optisync-icon.png' %}" alt="OptiSync">
-                        <div class="product-info"><h3>OptiSync</h3></div>
-                    </a>
-                    <a href="{% url 'catalog_app:product_page' product_slug='opsmind' %}" class="related-product-card">
-                        <img src="{% static 'images/opsmind-icon.png' %}" alt="OpsMind">
-                        <div class="product-info"><h3>OpsMind</h3></div>
-                    </a>
-                    <a href="{% url 'catalog_app:product_page' product_slug='vera' %}" class="related-product-card">
-                        <img src="{% static 'images/vera-icon.png' %}" alt="VERA">
-                        <div class="product-info"><h3>VERA</h3></div>
-                    </a>
-                </div>
-            </div>
+        <div class="related-products-grid">
+          <a
+            href="{% url 'catalog_app:product_page' product_slug='meetflow' %}"
+            class="related-product-card"
+          >
+            <img src="{% static 'images/meetflow-icon.png' %}" alt="MeetFlow" />
+            <div class="product-info"><h3>MeetFlow</h3></div>
+          </a>
+          <a
+            href="{% url 'catalog_app:product_page' product_slug='vista' %}"
+            class="related-product-card"
+          >
+            <img src="{% static 'images/vista-icon.png' %}" alt="Vista" />
+            <div class="product-info"><h3>Vista</h3></div>
+          </a>
+          <a
+            href="{% url 'catalog_app:product_page' product_slug='optisync' %}"
+            class="related-product-card"
+          >
+            <img src="{% static 'images/optisync-icon.png' %}" alt="OptiSync" />
+            <div class="product-info"><h3>OptiSync</h3></div>
+          </a>
+          <a
+            href="{% url 'catalog_app:product_page' product_slug='opsmind' %}"
+            class="related-product-card"
+          >
+            <img src="{% static 'images/opsmind-icon.png' %}" alt="OpsMind" />
+            <div class="product-info"><h3>OpsMind</h3></div>
+          </a>
+          <a
+            href="{% url 'catalog_app:product_page' product_slug='vera' %}"
+            class="related-product-card"
+          >
+            <img src="{% static 'images/vera-icon.png' %}" alt="VERA" />
+            <div class="product-info"><h3>VERA</h3></div>
+          </a>
+        </div>
+      </div>
     </section>
   </div>
 </main>
-{% endblock %} {% block extra_scripts %}
+{% endblock %}
+{% block extra_scripts %}
 <script>
   // Simple tab functionality
   const tabLinks = document.querySelectorAll(".tab-link");

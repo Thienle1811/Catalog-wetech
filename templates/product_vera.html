@@ -1,120 +1,363 @@
 {% extends "base_generic.html" %}
 {% load static %}
-
+{% block title %}VERA - Trợ Lý Tự Động Hóa Quy Trình Làm Việc (WAT){% endblock %}
+{% block extra_head %}
+<style>
+  .product-detail-layout {
+    display: flex;
+    gap: 48px;
+    padding: var(--section-spacing-desktop) 0;
+  }
+  .product-images {
+    width: 480px;
+    flex-shrink: 0;
+  }
+  .main-image {
+    width: 480px;
+    height: 480px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .product-info-details {
+    flex-grow: 1;
+  }
+  .product-info-details h1 {
+    font-size: 28px;
+    margin: 0 0 16px;
+  }
+  .product-price-detail {
+    font-size: 26px;
+    color: var(--cta-color);
+    font-weight: bold;
+    margin-bottom: 24px;
+  }
+  .product-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .product-actions .btn {
+    width: 180px;
+    height: 48px;
+  }
+  .product-tabs {
+    padding: var(--section-spacing-desktop) 0;
+    border-top: 1px solid var(--border-color);
+  }
+  .tab-nav {
+    display: flex;
+    gap: 24px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 24px;
+  }
+  .tab-nav button {
+    padding: 12px 16px;
+    border: none;
+    background: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+  }
+  .tab-nav button.active {
+    border-bottom-color: var(--cta-color);
+    font-weight: bold;
+  }
+  .tab-content {
+    display: none;
+  }
+  .tab-content.active {
+    display: block;
+  }
+  .feature-list li {
+    margin-bottom: 12px;
+  }
+  .feature-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  .feature-table th,
+  .feature-table td {
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    text-align: left;
+  }
+  .feature-table th {
+    background-color: #f8f9fa;
+  }
+  .related-products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .related-product-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .related-product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  .related-product-card .product-info {
+    padding: 16px;
+  }
+  .related-product-card h3 {
+    font-size: 1rem;
+    margin: 0;
+  }
+  .call-to-action {
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+</style>
+{% endblock %}
 {% block content %}
-<div class="product-detail-container">
-    <div class="product-main-image">
-        <img src="{% static 'images/vera.main.png' %}" alt="VERA Main Image">
+<main>
+  <div class="container">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" style="padding: 24px 0">
+      <ol
+        style="list-style: none; display: flex; gap: 8px; padding: 0; margin: 0"
+      >
+        <li><a href="{% url 'catalog_app:index' %}">Trang chủ</a> /</li>
+        <li><a href="{% url 'catalog_app:products' %}">Sản phẩm</a> /</li>
+        <li>VERA</li>
+      </ol>
+    </nav>
+
+    <div class="product-detail-layout">
+      <!-- Product Images -->
+      <div class="product-images">
+        <div class="main-image">
+          <img
+            src="{% static 'images/vera.main.png' %}"
+            alt="VERA - Workflow Automation Tool"
+          />
+        </div>
+      </div>
+
+      <!-- Product Info -->
+      <div class="product-info-details">
+        <h1>VERA - Trợ Lý Tự Động Hóa Quy Trình Làm Việc (WAT)</h1>
+        <p>
+          <strong>
+            Đánh bại công việc lặp đi lặp lại. Xóa sổ sai sót thủ công. VERA xây
+            dựng trung tâm Tự động hóa Nội bộ (Internal Automation Hub), kết nối
+            mọi phòng ban và hệ thống chỉ trong vài nhấp chuột.
+          </strong>
+        </p>
+
+        <div class="product-price-detail">Liên hệ</div>
+
+        <div class="product-actions">
+          <a href="#" class="btn btn-primary">Đăng ký dùng thử</a>
+          <a href="#" class="btn btn-secondary">Yêu cầu báo giá</a>
+        </div>
+      </div>
     </div>
 
-    <div class="product-info-tabs">
-        <div class="tab-headers">
-            <button class="tab-link active" onclick="openTab(event, 'description')">Mô tả</button>
-            <button class="tab-link" onclick="openTab(event, 'related')">Sản phẩm liên quan</button>
+    <!-- Product Tabs -->
+    <section class="product-tabs">
+      <nav class="tab-nav">
+        <button class="tab-link active" data-tab="problem">
+          Vấn đề & Giải pháp
+        </button>
+        <button class="tab-link" data-tab="benefits">Lợi ích cốt lõi</button>
+        <button class="tab-link" data-tab="related">Sản phẩm liên quan</button>
+      </nav>
+
+      <div id="problem" class="tab-content active">
+        <h3>💡 Doanh nghiệp của bạn đang lãng phí thời gian vào đâu?</h3>
+        <ul class="feature-list">
+          <li>
+            Lãng phí thời gian cho các công việc văn phòng lặp đi lặp lại hàng
+            ngày.
+          </li>
+          <li>
+            Dữ liệu bị cô lập trong các hệ thống khác nhau (ERP, CRM, HRM...),
+            gây khó khăn trong việc liên kết dữ liệu và báo cáo tổng thể.
+          </li>
+          <li>
+            Sai sót thường xuyên xảy ra do thao tác thủ công và việc nhập liệu
+            lại.
+          </li>
+          <li>
+            Không thể theo dõi và quản lý được hiệu suất cũng như tiến độ của
+            các quy trình làm việc liên phòng ban.
+          </li>
+        </ul>
+
+        <h3>✅ VERA - Giải pháp Tự động hóa Tập trung & Thông minh</h3>
+        <table class="feature-table">
+          <thead>
+            <tr>
+              <th>Tính năng cốt lõi</th>
+              <th>VERA giúp bạn tối ưu hóa hoạt động nội bộ như thế nào</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Tự động hóa Low-Code/No-Code</strong></td>
+              <td>
+                <strong>Tự động hóa nhanh chóng:</strong> Xây dựng quy trình tự
+                động hóa (Workflow Automation) bằng các nền tảng
+                low-code/no-code (như Make, Zapier, Power Automate), giúp nhân
+                viên không chuyên cũng có thể thiết lập.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Internal Automation Hub</strong></td>
+              <td>
+                <strong>Kết nối tập trung:</strong> Thiết lập một nền tảng Hub
+                trung tâm để tự động hóa các quy trình lặp lại, kết nối giữa các
+                phòng ban và hệ thống có sẵn (ERP, CRM, HRM, Google Workspace,
+                Excel, Email...).
+              </td>
+            </tr>
+            <tr>
+              <td><strong>RPA + AI Validation Engine</strong></td>
+              <td>
+                <strong>Loại bỏ sai sót:</strong> Sử dụng RPA (Robotic Process
+                Automation) để mô phỏng và thực hiện thao tác thủ công, kết hợp
+                với AI Validation Engine để kiểm tra và xử lý dữ liệu tự động,
+                đảm bảo độ chính xác.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Tích hợp API Gateway & Middleware</strong></td>
+              <td>
+                <strong>Kết nối mạnh mẽ:</strong> Tích hợp hệ thống qua API
+                Gateway hoặc Middleware Integration Platform (như Apigee,
+                Mulesoft, Node-RED, Power Automate), đảm bảo mọi công cụ đều
+                được kết nối thông suốt.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Workflow Monitoring & Process Intelligence</strong>
+              </td>
+              <td>
+                <strong>Quản lý chuyên sâu:</strong> Xây dựng Workflow
+                Monitoring Dashboard kết hợp Process Intelligence để theo dõi,
+                đo lường và quản lý hiệu suất của từng quy trình.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong
+                  >Kiểm soát Truy cập & Phê duyệt tự động (RBAC +
+                  e-sign)</strong
+                >
+              </td>
+              <td>
+                <strong>An toàn & Minh bạch:</strong> Áp dụng mô hình Role-based
+                Access Control (RBAC) kết hợp e-sign/Approval Automation để phân
+                quyền và tự động hóa quy trình phê duyệt một cách an toàn và rõ
+                ràng.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="benefits" class="tab-content">
+        <h3>🌟 Lợi ích cốt lõi bạn nhận được:</h3>
+        <ul class="feature-list">
+          <li>
+            <strong>Tăng hiệu suất 40%:</strong> Giải phóng nhân viên khỏi các
+            nhiệm vụ lặp đi lặp lại, cho phép họ tập trung vào các công việc
+            chiến lược hơn.
+          </li>
+          <li>
+            <strong>Độ chính xác tuyệt đối:</strong> Giảm thiểu lỗi do con người
+            nhờ RPA và AI Validation.
+          </li>
+          <li>
+            <strong>Quy trình tập trung:</strong> Dữ liệu được đồng bộ hóa và
+            quản lý tập trung, phá vỡ các silo dữ liệu giữa các phòng ban.
+          </li>
+          <li>
+            <strong>Minh bạch & Kiểm soát:</strong> Quản lý quy trình theo thời
+            gian thực và tự động hóa phê duyệt theo đúng vai trò.
+          </li>
+        </ul>
+        <br />
+        <p class="call-to-action">
+          Ngừng làm việc thủ công, Bắt đầu Tự động hóa thông minh! Đăng ký dùng
+          thử VERA ngay hôm nay để biến các quy trình làm việc rời rạc thành
+          luồng vận hành tinh gọn, hiệu suất cao!
+        </p>
+      </div>
+
+      <div id="related" class="tab-content">
+        <div class="related-products-grid">
+          <a
+            href="{% url 'catalog_app:product_page' product_slug='meetflow' %}"
+            class="related-product-card"
+          >
+            <img src="{% static 'images/meetflow-icon.png' %}" alt="MeetFlow" />
+            <div class="product-info"><h3>MeetFlow</h3></div>
+          </a>
+          <a
+            href="{% url 'catalog_app:product_page' product_slug='notiq' %}"
+            class="related-product-card"
+          >
+            <img src="{% static 'images/notiq-icon.png' %}" alt="Notiq" />
+            <div class="product-info"><h3>Notiq</h3></div>
+          </a>
+          <a
+            href="{% url 'catalog_app:product_page' product_slug='vista' %}"
+            class="related-product-card"
+          >
+            <img src="{% static 'images/vista-icon.png' %}" alt="Vista" />
+            <div class="product-info"><h3>Vista</h3></div>
+          </a>
+          <a
+            href="{% url 'catalog_app:product_page' product_slug='optisync' %}"
+            class="related-product-card"
+          >
+            <img src="{% static 'images/optisync-icon.png' %}" alt="OptiSync" />
+            <div class="product-info"><h3>OptiSync</h3></div>
+          </a>
+          <a
+            href="{% url 'catalog_app:product_page' product_slug='opsmind' %}"
+            class="related-product-card"
+          >
+            <img src="{% static 'images/opsmind-icon.png' %}" alt="OpsMind" />
+            <div class="product-info"><h3>OpsMind</h3></div>
+          </a>
         </div>
-
-        <div id="description" class="tab-content" style="display: block;">
-            <h1>VERA - Trợ Lý Tự Động Hóa Quy Trình Làm Việc (WAT)</h1>
-            <h2>Đánh bại công việc lặp đi lặp lại. Xóa sổ sai sót thủ công. VERA xây dựng trung tâm Tự động hóa Nội bộ (Internal Automation Hub), kết nối mọi phòng ban và hệ thống chỉ trong vài cú nhấp chuột.</h2>
-            
-            <h3>💡 Doanh nghiệp của bạn đang lãng phí thời gian vào đâu? (Vấn đề/Nhu cầu)</h3>
-            <ul>
-                <li>Lãng phí thời gian cho các công việc văn phòng lặp đi lặp lại hàng ngày.</li>
-                <li>Dữ liệu bị cô lập trong các hệ thống khác nhau (ERP, CRM, HRM...), gây khó khăn trong việc liên kết dữ liệu và báo cáo tổng thể.</li>
-                <li>Sai sót thường xuyên xảy ra do thao tác thủ công và việc nhập liệu lại.</li>
-                <li>Không thể theo dõi và quản lý được hiệu suất cũng như tiến độ của các quy trình làm việc liên phòng ban.</li>
-            </ul>
-
-            <h3>✅ VERA - Giải pháp Tự động hóa Tập trung & Thông minh (Tính năng & Giải pháp)</h3>
-            <p>VERA không chỉ là một công cụ, đó là Trục kết nối và Tự động hóa trung tâm giúp tối ưu hóa luồng công việc của bạn:</p>
-            
-            <table class="features-table">
-                <thead>
-                    <tr>
-                        <th>Tính năng cốt lõi</th>
-                        <th>VERA giúp bạn tối ưu hóa hoạt động nội bộ như thế nào</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Tự động hóa Low-Code/No-Code</strong></td>
-                        <td><strong>Tự động hóa nhanh chóng:</strong> Xây dựng quy trình tự động hóa (Workflow Automation) bằng các nền tảng low-code/no-code (như Make, Zapier, Power Automate), giúp nhân viên không chuyên cũng có thể thiết lập.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Internal Automation Hub</strong></td>
-                        <td><strong>Kết nối tập trung:</strong> Thiết lập một nền tảng Hub trung tâm để tự động hóa các quy trình lặp lại, kết nối giữa các phòng ban và hệ thống có sẵn (ERP, CRM, HRM, Google Workspace, Excel, Email...).</td>
-                    </tr>
-                    <tr>
-                        <td><strong>RPA + AI Validation Engine</strong></td>
-                        <td><strong>Loại bỏ sai sót:</strong> Sử dụng RPA (Robotic Process Automation) để mô phỏng và thực hiện thao tác thủ công, kết hợp với AI Validation Engine để kiểm tra và xử lý dữ liệu tự động, đảm bảo độ chính xác.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Tích hợp API Gateway & Middleware</strong></td>
-                        <td><strong>Kết nối mạnh mẽ:</strong> Tích hợp hệ thống qua API Gateway hoặc Middleware Integration Platform (như Apigee, Mulesoft, Node-RED, Power Automate), đảm bảo mọi công cụ đều được kết nối thông suốt.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Workflow Monitoring & Process Intelligence</strong></td>
-                        <td><strong>Quản lý chuyên sâu:</strong> Xây dựng Workflow Monitoring Dashboard kết hợp Process Intelligence để theo dõi, đo lường và quản lý hiệu suất của từng quy trình.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Kiểm soát Truy cập & Phê duyệt tự động (RBAC + e-sign)</strong></td>
-                        <td><strong>An toàn & Minh bạch:</strong> Áp dụng mô hình Role-based Access Control (RBAC) kết hợp e-sign/Approval Automation để phân quyền và tự động hóa quy trình phê duyệt một cách an toàn và rõ ràng.</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>🌟 Lợi ích cốt lõi bạn nhận được: (Core Benefits)</h3>
-            <ul>
-                <li><strong>Tăng hiệu suất 40%:</strong> Giải phóng nhân viên khỏi các nhiệm vụ lặp đi lặp lại, cho phép họ tập trung vào các công việc chiến lược hơn.</li>
-                <li><strong>Độ chính xác tuyệt đối:</strong> Giảm thiểu lỗi do con người nhờ RPA và AI Validation.</li>
-                <li><strong>Quy trình tập trung:</strong> Dữ liệu được đồng bộ hóa và quản lý tập trung, phá vỡ các silo dữ liệu giữa các phòng ban.</li>
-                <li><strong>Minh bạch & Kiểm soát:</strong> Quản lý quy trình theo thời gian thực và tự động hóa phê duyệt theo đúng vai trò.</li>
-            </ul>
-
-            <h3>👉 Kêu gọi hành động (Call to Action)</h3>
-            <p class="call-to-action">Ngừng làm việc thủ công, Bắt đầu Tự động hóa thông minh! Đăng ký dùng thử VERA ngay hôm nay để biến các quy trình làm việc rời rạc thành luồng vận hành tinh gọn, hiệu suất cao!</p>
-        </div>
-
-        <div id="related" class="tab-content">
-            <div class="related-products-grid">
-                <a href="{% url 'catalog_app:product_page' product_slug='meetflow' %}" class="related-product-card">
-                    <img src="{% static 'images/meetflow-icon.png' %}" alt="MeetFlow">
-                    <div class="product-info"><h3>MeetFlow</h3></div>
-                </a>
-                <a href="{% url 'catalog_app:product_page' product_slug='notiq' %}" class="related-product-card">
-                    <img src="{% static 'images/notiq-icon.png' %}" alt="Notiq">
-                    <div class="product-info"><h3>Notiq</h3></div>
-                </a>
-                <a href="{% url 'catalog_app:product_page' product_slug='vista' %}" class="related-product-card">
-                    <img src="{% static 'images/vista-icon.png' %}" alt="Vista">
-                    <div class="product-info"><h3>Vista</h3></div>
-                </a>
-                <a href="{% url 'catalog_app:product_page' product_slug='optisync' %}" class="related-product-card">
-                    <img src="{% static 'images/optisync-icon.png' %}" alt="OptiSync">
-                    <div class="product-info"><h3>OptiSync</h3></div>
-                </a>
-                <a href="{% url 'catalog_app:product_page' product_slug='opsmind' %}" class="related-product-card">
-                    <img src="{% static 'images/opsmind-icon.png' %}" alt="OpsMind">
-                    <div class="product-info"><h3>OpsMind</h3></div>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
+      </div>
+    </section>
+  </div>
+</main>
+{% endblock %}
+{% block extra_scripts %}
 <script>
-function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tab-content");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tab-link");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
+  document.querySelectorAll(".tab-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      const tabId = link.getAttribute("data-tab");
+      document
+        .querySelectorAll(".tab-link")
+        .forEach((l) => l.classList.remove("active"));
+      document
+        .querySelectorAll(".tab-content")
+        .forEach((c) => c.classList.remove("active"));
+      link.classList.add("active");
+      document.getElementById(tabId).classList.add("active");
+    });
+  });
 </script>
 {% endblock %}

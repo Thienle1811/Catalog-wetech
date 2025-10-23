@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block title %}Trung tâm trợ giúp - WetechX{% endblock %}
+{% block content %}
+<main>
+  <div class="container" style="padding: 48px 0">
+    <h1>Trung tâm trợ giúp</h1>
+    <p>Chọn sản phẩm để xem các hướng dẫn và tài liệu hỗ trợ chi tiết.</p>
+    <ul>
+      <li>
+        <a href="{% url 'catalog_app:help_speaklife' %}">Trợ lý AI Speaklife</a>
+      </li>
+      <li><a href="{% url 'catalog_app:help_sortic' %}">OCR Sortic</a></li>
+      <li>
+        <a href="{% url 'catalog_app:help_vista' %}">Website Catalogue Vista</a>
+      </li>
+      <li><a href="{% url 'catalog_app:help_optisync' %}">PMS Optisync</a></li>
+      <li><a href="{% url 'catalog_app:help_optimind' %}">ERP OptiMind</a></li>
+      <li><a href="{% url 'catalog_app:help_vera' %}">WAI Vera</a></li>
+    </ul>
+  </div>
+</main>
+{% endblock %}
