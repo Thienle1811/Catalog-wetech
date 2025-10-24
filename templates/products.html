@@ -143,17 +143,17 @@
         <div class="search-box">
           <input type="text" placeholder="Tìm kiếm sản phẩm..." />
           <img
-            src="{% static 'images/search-icon.svg' %}"
+            src="{% static 'images/search-icon.png' %}"
             alt="Search Icon"
             class="icon"
           />
         </div>
         <div class="header-actions">
           <div class="action-icon">
-            <img src="{% static 'images/user-icon.svg' %}" alt="User" />
+            <img src="{% static 'images/user-icon.png' %}" alt="User" />
           </div>
           <div class="action-icon">
-            <img src="{% static 'images/cart-icon.svg' %}" alt="Cart" />
+            <img src="{% static 'images/cart-icon.png' %}" alt="Cart" />
           </div>
         </div>
       </div>
@@ -245,74 +245,123 @@
           <!-- Product Grid -->
           <div class="product-grid-container">
             <div class="product-grid">
-              <!-- Product Card -->
+              <!-- MeetFlow -->
               <div class="product-card">
-                <a href="product-detail.html">
+                <a
+                  href="{% url 'catalog_app:product_page' product_slug='meetflow' %}"
+                >
                   <img
-                    src="https://via.placeholder.com/300x300"
-                    alt="Product"
+                    src="{% static 'images/meetflow-main.jpg' %}"
+                    alt="MeetFlow"
                   />
                   <div class="product-info">
-                    <h3>Tên sản phẩm 1</h3>
-                    <div class="product-rating">★★★★☆ (4.5)</div>
-                    <div class="product-price">1.200.000đ</div>
+                    <h3>MeetFlow</h3>
+                    <div class="product-rating">★★★★★</div>
+                    <div class="product-price">Liên hệ</div>
                   </div>
                 </a>
                 <div class="product-card-actions">
                   <button class="btn btn-secondary">Thêm vào giỏ</button>
-                  <button class="btn btn-primary">Mua ngay</button>
+                  <button class="btn btn-primary">Liên hệ</button>
                 </div>
               </div>
-              <!-- Repeat 7 more times -->
+
+              <!-- Notiq -->
               <div class="product-card">
-                <a href="product-detail.html">
+                <a
+                  href="{% url 'catalog_app:product_page' product_slug='notiq' %}"
+                >
                   <img
-                    src="https://via.placeholder.com/300x300"
-                    alt="Product"
+                    src="{% static 'images/Notiq -OCR-main.png' %}"
+                    alt="Notiq"
                   />
                   <div class="product-info">
-                    <h3>Tên sản phẩm 2</h3>
-                    <div class="product-rating">★★★★★ (5.0)</div>
-                    <div class="product-price">950.000đ</div>
+                    <h3>Notiq</h3>
+                    <div class="product-rating">★★★★★</div>
+                    <div class="product-price">Liên hệ</div>
                   </div>
                 </a>
                 <div class="product-card-actions">
                   <button class="btn btn-secondary">Thêm vào giỏ</button>
-                  <button class="btn btn-primary">Mua ngay</button>
+                  <button class="btn btn-primary">Liên hệ</button>
                 </div>
               </div>
+
+              <!-- Vista -->
               <div class="product-card">
-                <a href="product-detail.html">
-                  <img
-                    src="https://via.placeholder.com/300x300"
-                    alt="Product"
-                  />
+                <a
+                  href="{% url 'catalog_app:product_page' product_slug='vista' %}"
+                >
+                  <img src="{% static 'images/vista-main.png' %}" alt="Vista" />
                   <div class="product-info">
-                    <h3>Tên sản phẩm 3</h3>
-                    <div class="product-rating">★★★★☆ (4.2)</div>
-                    <div class="product-price">2.500.000đ</div>
+                    <h3>Vista</h3>
+                    <div class="product-rating">★★★★★</div>
+                    <div class="product-price">Liên hệ</div>
                   </div>
                 </a>
                 <div class="product-card-actions">
                   <button class="btn btn-secondary">Thêm vào giỏ</button>
-                  <button class="btn btn-primary">Mua ngay</button>
+                  <button class="btn btn-primary">Liên hệ</button>
                 </div>
               </div>
+
+              <!-- OptiSync -->
               <div class="product-card">
-                <a href="product-detail.html">
+                <a
+                  href="{% url 'catalog_app:product_page' product_slug='optisync' %}"
+                >
                   <img
-                    src="https://via.placeholder.com/300x300"
-                    alt="Product"
+                    src="{% static 'images/OptiSync-main.png' %}"
+                    alt="OptiSync"
                   />
                   <div class="product-info">
-                    <h3>Tên sản phẩm 4</h3>
-                    <div class="product-rating">★★★☆☆ (3.8)</div>
-                    <div class="product-price">750.000đ</div>
+                    <h3>OptiSync</h3>
+                    <div class="product-rating">★★★★★</div>
+                    <div class="product-price">Liên hệ</div>
                   </div>
                 </a>
                 <div class="product-card-actions">
                   <button class="btn btn-secondary">Thêm vào giỏ</button>
-                  <button class="btn btn-primary">Mua ngay</button>
+                  <button class="btn btn-primary">Liên hệ</button>
+                </div>
+              </div>
+
+              <!-- OpsMind -->
+              <div class="product-card">
+                <a
+                  href="{% url 'catalog_app:product_page' product_slug='opsmind' %}"
+                >
+                  <img
+                    src="{% static 'images/OpsMind-main.png' %}"
+                    alt="OpsMind"
+                  />
+                  <div class="product-info">
+                    <h3>OpsMind</h3>
+                    <div class="product-rating">★★★★★</div>
+                    <div class="product-price">Liên hệ</div>
+                  </div>
+                </a>
+                <div class="product-card-actions">
+                  <button class="btn btn-secondary">Thêm vào giỏ</button>
+                  <button class="btn btn-primary">Liên hệ</button>
+                </div>
+              </div>
+
+              <!-- VERA -->
+              <div class="product-card">
+                <a
+                  href="{% url 'catalog_app:product_page' product_slug='vera' %}"
+                >
+                  <img src="{% static 'images/vera.main.png' %}" alt="VERA" />
+                  <div class="product-info">
+                    <h3>VERA</h3>
+                    <div class="product-rating">★★★★★</div>
+                    <div class="product-price">Liên hệ</div>
+                  </div>
+                </a>
+                <div class="product-card-actions">
+                  <button class="btn btn-secondary">Thêm vào giỏ</button>
+                  <button class="btn btn-primary">Liên hệ</button>
                 </div>
               </div>
             </div>
@@ -355,18 +404,14 @@
             <div class="social-icons">
               <a href="#"
                 ><img
-                  src="{% static 'images/facebook-icon.svg' %}"
+                  src="{% static 'images/facebook-icon.png' %}"
                   alt="Facebook"
               /></a>
               <a href="#"
-                ><img
-                  src="{% static 'images/instagram-icon.svg' %}"
-                  alt="Instagram"
+                ><img src="{% static 'images/ins-icon.png' %}" alt="Instagram"
               /></a>
               <a href="#"
-                ><img
-                  src="{% static 'images/twitter-icon.svg' %}"
-                  alt="Twitter"
+                ><img src="{% static 'images/zalo-icon.png' %}" alt="Twitter"
               /></a>
             </div>
           </div>
@@ -380,7 +425,7 @@
         </div>
       </div>
       <div class="copyright-bar">
-        <p>&copy; 2025 Tên Công Ty. All rights reserved.</p>
+        <p>&copy; 2025 WetechX. All rights reserved.</p>
       </div>
     </footer>
   </body>
