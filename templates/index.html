@@ -1,7 +1,5 @@
-{% extends "base_generic.html" %}
-{% load static %}
-{% block title %}Trang chủ - Catalog{% endblock %}
-{% block extra_head %}
+{% extends "base_generic.html" %} {% load static %} {% block title %}Trang chủ -
+Catalog{% endblock %} {% block extra_head %}
 <style>
   .hero-slider {
     position: relative;
@@ -64,8 +62,7 @@
     font-size: 1.1rem;
   }
 </style>
-{% endblock %}
-{% block content %}
+{% endblock %} {% block content %}
 <main>
   <!-- Hero Section with Slider -->
   <section class="hero-slider">
@@ -97,7 +94,6 @@
       >
     </div>
   </section>
-
   <!-- Categories Section -->
   <section class="categories" style="padding: var(--section-spacing-desktop) 0">
     <div class="container">
@@ -289,7 +285,6 @@
       display: block;
     }
   </style>
-
   <!-- Featured Products Section -->
   <section
     class="featured-products"
@@ -307,9 +302,7 @@
           class="product-card-featured"
         >
           <img src="{% static 'images/meetflow-main.jpg' %}" alt="MeetFlow" />
-          <div class="product-info">
-            <h3>Trợ lý AI cuộc họp - MeetFlow</h3>
-          </div>
+          <div class="product-info"><h3>Trợ lý AI cuộc họp - MeetFlow</h3></div>
         </a>
         <!-- Product Card 2 -->
         <a
@@ -327,9 +320,7 @@
           class="product-card-featured"
         >
           <img src="{% static 'images/vista-main.png' %}" alt="Vista" />
-          <div class="product-info">
-            <h3>Website Cataloge - Vista</h3>
-          </div>
+          <div class="product-info"><h3>Website Cataloge - Vista</h3></div>
         </a>
         <!-- Product Card 4 -->
         <a
@@ -337,18 +328,16 @@
           class="product-card-featured"
         >
           <img src="{% static 'images/OpsMind-main.png' %}" alt="OpsMind" />
-          <div class="product-info">
-            <h3>ERP - OpsMind</h3>
-          </div>
+          <div class="product-info"><h3>ERP - OpsMind</h3></div>
         </a>
       </div>
     </div>
   </section>
-
-  <!-- Feedback Section -->
+  <!-- Feedback Section (temporarily hidden) -->
   <section
     class="feedback"
     style="
+      display: none;
       padding: var(--section-spacing-desktop) 0;
       background: var(--white-color);
     "
@@ -410,21 +399,8 @@
     </div>
   </section>
 </main>
-{% endblock %}
-{% block extra_scripts %}
+{% endblock %} {% block extra_scripts %}
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const slider = document.querySelector(".slider-images");
-    if (slider) {
-      let currentIndex = 0;
-      const totalImages = slider.children.length;
-      const imageWidth = 100 / totalImages;
-
-      setInterval(() => {
-        currentIndex = (currentIndex + 1) % totalImages;
-        slider.style.transform = `translateX(-${currentIndex * imageWidth}%)`;
-      }, 4000); // Change image every 4 seconds
-    }
-  });
+  document.addEventListener("DOMContentLoaded", function () { const slider = document.querySelector(".slider-images"); if (slider) { let currentIndex = 0; const totalImages = slider.children.length; const imageWidth = 100 / totalImages; setInterval(() => { currentIndex = (currentIndex + 1) % totalImages; slider.style.transform = translateX(-${currentIndex * imageWidth}%); }, 4000); // Change image every 4 seconds } });
 </script>
 {% endblock %}

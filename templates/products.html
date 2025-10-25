@@ -130,14 +130,15 @@
     <header class="main-header">
       <div class="container">
         <a href="{% url 'catalog_app:index' %}" class="logo">
-          <img src="{% static 'images/logo.png' %}" alt="Logo" />
+          <img src="{% static 'images/logo.png' %}" alt="Logo" style="height: 55px; width: auto;" />
         </a>
         <nav class="main-nav">
           <ul>
             <li><a href="{% url 'catalog_app:index' %}">Trang chủ</a></li>
-            <li><a href="{% url 'catalog_app:products' %}">Sản phẩm</a></li>
-            <li><a href="{% url 'catalog_app:about' %}">Thông tin</a></li>
-            <li><a href="{% url 'catalog_app:contact' %}">Liên hệ</a></li>
+            <!-- Temporarily hidden -->
+            <li style="display:none"><a href="{% url 'catalog_app:products' %}">Sản phẩm</a></li>
+            <li style="display:none"><a href="{% url 'catalog_app:about' %}">Thông tin</a></li>
+            <li style="display:none"><a href="{% url 'catalog_app:contact' %}">Liên hệ</a></li>
           </ul>
         </nav>
         <div class="search-box">

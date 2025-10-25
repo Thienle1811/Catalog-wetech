@@ -8,24 +8,24 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Montserrat as primary font for a strong IT / industrial look -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     {% block extra_head %}{% endblock %}
   </head>
   <body>
     <header class="main-header">
       <div class="container">
         <a href="{% url 'catalog_app:index' %}" class="logo">
-          <img src="{% static 'images/logo.png' %}" alt="Logo" />
+          <img src="{% static 'images/logo-main.png' %}" alt="Logo" style="height: 55px; width: auto;" />
         </a>
         <nav class="main-nav">
           <ul>
-            <li><a href="{% url 'catalog_app:index' %}">Trang chủ</a></li>
-            <li><a href="{% url 'catalog_app:products' %}">Sản phẩm</a></li>
-            <li><a href="{% url 'catalog_app:about' %}">Thông tin</a></li>
-            <li><a href="{% url 'catalog_app:contact' %}">Liên hệ</a></li>
+            <!-- Hide the separate 'Trang chủ' link since logo links home -->
+            <li style="display:none"><a href="{% url 'catalog_app:index' %}">Trang chủ</a></li>
+            <!-- Temporarily hide other nav links -->
+            <li style="display:none"><a href="{% url 'catalog_app:products' %}">Sản phẩm</a></li>
+            <li style="display:none"><a href="{% url 'catalog_app:about' %}">Thông tin</a></li>
+            <li style="display:none"><a href="{% url 'catalog_app:contact' %}">Liên hệ</a></li>
           </ul>
         </nav>
         <div class="search-box">
